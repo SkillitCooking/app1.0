@@ -8,7 +8,7 @@ import {TabsPage} from './pages/tabs';
   templateUrl: 'build/app.html',
   config: {} // http://ionicframework.com/docs/v2/api/config/Config/
 })
-class MyApp {
+export class SkillitApp {
   // make TabsPage the root (or first) page
   rootPage: any = TabsPage;
 

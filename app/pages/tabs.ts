@@ -1,10 +1,10 @@
 import {Page} from 'ionic-framework/ionic';
 
-import {AccountHomePage} from './account-tab/account-home';
-import {CookHomePage} from './cook-tab/cook-home';
-import {LearnHomePage} from './learn-tab/learn-home';
-import {RecipesHomePage} from './recipes-tab/recipes-home';
-import {TipsHomePage} from './tips-tab/tips-home';
+import {AccountHomePage} from './account-tab/account-home/account-home';
+import {CookHomePage} from './cook-tab/cook-home/cook-home';
+import {LearnHomePage} from './learn-tab/learn-home/learn-home';
+import {RecipesHomePage} from './recipes-tab/recipes-home/recipes-home';
+import {TipsHomePage} from './tips-tab/tips-home/tips-home';
 
 @Page({
   templateUrl: 'build/pages/tabs.html'

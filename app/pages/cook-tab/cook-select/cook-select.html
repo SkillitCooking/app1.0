@@ -1,0 +1,22 @@
+<ion-navbar *navbar>
+  <ion-title>Create Your Meal</ion-title>
+</ion-navbar>
+<ion-content>
+  <ion-segment ([ngModel])="mealType">
+    <ion-segment-button value="alacarte">
+      Ala Carte
+    </ion-segment-button>
+    <ion-segment-button value="buildyourown">
+      Build Your Own
+    </ion-segment-button>
+    <ion-segment-button value="fullrecipe">
+      Full Recipes
+    </ion-segment-button>
+  </ion-segment>
+  <p *ngFor="#type of ingredients">typename: {{type.name}}
+    <span *ngFor="#ingredient of type.ingredients">
+      name: {{ingredient.name}}
+      form: {{ingredient.forms[0].name}}
+    </span>
+  </p>
+</ion-content>

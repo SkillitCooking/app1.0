@@ -1,7 +1,7 @@
 import * as _ from 'underscore/underscore';
 
 import {IONIC_DIRECTIVES, IonicApp, NavController, Alert} from 'ionic-framework/ionic';
-import {Input, Component, Injectable, AfterViewInit} from 'angular2/core';
+import {Input, Output, Component, EventEmitter, Injectable, AfterViewInit} from 'angular2/core';
 import {Ingredient} from '../../models/ingredient';
 import {IngredientType} from '../../models/ingredient-type';
 import {IngredientForm} from '../../models/ingredient-form';
@@ -15,6 +15,7 @@ export class IngredientSelection implements AfterViewInit {
     //need IngredientType type
     @Input() ingredientTypes: Array<IngredientType>;
     @Input() ingredientSelectionHeader: string;
+    @Output() onDone = new EventEmitter<any>();
     app: IonicApp;
     nav: NavController;
     slides: Slides;
@@ -84,6 +85,7 @@ export class IngredientSelection implements AfterViewInit {
     } else {
       if(this.slides.isAtEnd()){
         //check if adequate ingredients were chosen
+        let ingredientFormErrFlag = false;
         for (var i = this.ingredientTypes.length - 1; i >= 0; i--) {
           if(!this.ingredientFormsSelected(this.ingredientTypes[i].ingredients)){
             let alert = Alert.create({
@@ -92,10 +94,11 @@ export class IngredientSelection implements AfterViewInit {
               buttons: ['OK']
             });
             this.nav.present(alert);
+            ingredientFormErrFlag = true;
             break;
           }
         }
-        else if(!this.adequateIngredientsChosen()){
+        if(!this.adequateIngredientsChosen() && !ingredientFormErrFlag){
           let alert = Alert.create({
             title: 'Inadequate Ingredients',
             subTitle: 'You need to pick enough ingredients',
@@ -103,8 +106,8 @@ export class IngredientSelection implements AfterViewInit {
           });
           this.nav.present(alert);
         } else {
-          //then take it to the next page in the series,
-          //passing on selected ingredients and forms
+          //emit event, along with needed selected ingredients list
+          this.onDone.emit(this.getSelectedIngredients());
         }
       } else {
         this.slides.next();
@@ -112,13 +115,22 @@ export class IngredientSelection implements AfterViewInit {
     }
   }
 
+  getSelectedIngredients() {
+    let theSelect = _.map(this.ingredientTypes, (type) => {
+      let selected = {} as IngredientType;
+      selected.name = type.name;
+      selected.ingredients = _.filter(type.ingredients, (ingredient) => {
+        return ingredient.checked;
+      });
+      return selected;
+    });
+    console.log(theSelect);
+    return theSelect;
+  }
+
   adequateIngredientsChosen() {
 
     return _.every(this.ingredientTypes, (ingredientType) => {
-      console.log(_.countBy(ingredientType.ingredients, (ingredient) => {
-          return ingredient.checked;
-      }));
-      console.log(ingredientType.minSelected);
       return ingredientType.minSelected === 0 || ingredientType.minSelected <=
         _.countBy(ingredientType.ingredients, (ingredient) => {
           return ingredient.checked;

@@ -2,5 +2,5 @@
   <ion-title>Let's Get Cooking</ion-title>
 </ion-navbar>
 <ion-content>
-  <ingredient-selection [ingredientTypes]="ingredientTypes" [ingredientSelectionHeader]="ingredientSelectionHeader"></ingredient-selection>
+  <ingredient-selection [ingredientTypes]="ingredientTypes" [ingredientSelectionHeader]="ingredientSelectionHeader" (onDone)="onDone($event)"></ingredient-selection>
 </ion-content>

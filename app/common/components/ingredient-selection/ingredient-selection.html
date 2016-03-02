@@ -1,24 +1,24 @@
-<ion-slides pager class="ingredient-selection">
-  <ion-slide *ngFor="#ingredientType of ingredientTypes">
-    <!--<ion-content>-->
+<ion-slides pager class="ingredient-selection" id="ingredient-slides">
+  <ion-slide *ngFor="#ingredientType of ingredientTypes; #i = index">
       <h2>{{ingredientSelectionHeader}}</h2>
       <h3>{{ingredientType.name}}</h3>
+      <p *ngIf="ingredientType.minSelected > 0">Select at Least {{ingredientType.minSelected}}</p>
       <ion-list no-lines inset>
         <div *ngFor="#ingredient of ingredientType.ingredients">
           <ion-item>
             <ion-label>{{ingredient.name}}</ion-label>
-            <ion-checkbox #ingredientCB (change)="selectIngredient(ingredient, ingredientCB.checked)"></ion-checkbox>
+            <ion-checkbox #ingredientCB [(ngModel)]="ingredient.checked"></ion-checkbox>
           </ion-item>
           <ion-col offset-10>
-            <ion-item [hidden]="ingredientCB.checked" *ngFor="#ingredientForm of ingredient.forms">
+            <ion-item [hidden]="!ingredient.checked" *ngFor="#ingredientForm of ingredient.forms">
               <ion-label>{{ingredientForm.name}}</ion-label>
-              <ion-checkbox #formCB (change)="selectIngredientForm(ingredient, ingredientForm, formCB.checked)"></ion-checkbox>
+              <ion-checkbox [(ngModel)]="ingredientForm.checked"></ion-checkbox>
             </ion-item>
           </ion-col>
         </div>
       </ion-list>
-      <button class="swiper-button-prev"></button>
-      <button class="swiper-button-next"></button>
-    <!--</ion-content>-->
+      
+      <button (click)="slidePrev()">Previous</button>
+      <button (click)="slideNext(ingredientType.ingredients)">Next</button>
   </ion-slide>
 </ion-slides>

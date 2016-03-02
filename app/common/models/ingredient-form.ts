@@ -2,4 +2,5 @@
 
 export interface IngredientForm {
   name: string;
+  checked?: boolean;
 }

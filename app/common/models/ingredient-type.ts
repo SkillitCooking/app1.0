@@ -6,4 +6,5 @@ export interface IngredientType {
   
   name: string;
   ingredients: Array<Ingredient>;
+  minSelected: number;
 }

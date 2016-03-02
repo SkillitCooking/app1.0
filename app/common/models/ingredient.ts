@@ -6,4 +6,5 @@ export interface Ingredient {
   
   name: string;
   forms: Array<IngredientForm>;
+  checked?: boolean;
 }

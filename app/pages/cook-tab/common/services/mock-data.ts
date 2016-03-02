@@ -3,20 +3,25 @@ import {IngredientType} from '../../../../common/models/ingredient-type';
 export var TEST_INGREDIENT_TYPES: IngredientType[] = [
   {
     "name": "Produce",
+    "minSelected": 2,
     "ingredients": [
       {
         "name": "Apple",
+        "checked": false,
         "forms": [
           {
+            "checked": true,
             "name": "Sliced"
           },
           {
+            "checked": true,
             "name": "Cored"
           }
         ]
       },
       {
         "name": "Lettuce",
+        "checked": true,
         "forms": [
             {
               "name": "Frayed"
@@ -25,12 +30,14 @@ export var TEST_INGREDIENT_TYPES: IngredientType[] = [
               "name": "Rotten"
             },
             {
+              "checked": true,
               "name": "Bleached"
             }
         ]
       },
       {
         "name": "Strawberries",
+        "checked": false,
         "forms": [
             {
                 "name": "Red"
@@ -45,6 +52,7 @@ export var TEST_INGREDIENT_TYPES: IngredientType[] = [
       },
       {
         "name": "Avocados",
+        "checked": false,
         "forms": [
             {
                 "name": "Hard"
@@ -61,9 +69,11 @@ export var TEST_INGREDIENT_TYPES: IngredientType[] = [
   },
   {
       "name": "Meats",
+      "minSelected": 0,
       "ingredients": [
           {
               "name": "Fish",
+              "checked": false,
               "forms": [
                   {
                       "name": "White"
@@ -75,6 +85,7 @@ export var TEST_INGREDIENT_TYPES: IngredientType[] = [
           },
           {
               "name": "Beef",
+              "checked": false,
               "forms": [
                   {
                       "name": "Ground"
@@ -89,6 +100,7 @@ export var TEST_INGREDIENT_TYPES: IngredientType[] = [
           },
           {
               "name": "Chicken",
+              "checked": false,
               "forms": [
                   {
                       "name": "Fried"
@@ -103,6 +115,7 @@ export var TEST_INGREDIENT_TYPES: IngredientType[] = [
           },
           {
               "name": "Pork",
+              "checked": false,
               "forms": [
                   {
                       "name": "Hard"
@@ -119,9 +132,11 @@ export var TEST_INGREDIENT_TYPES: IngredientType[] = [
   },
   {
     "name": "Breads",
+    "minSelected": 1,
     "ingredients": [
       {
         "name": "Sweet",
+        "checked": false,
         "forms": [
           {
             "name": "Sliced"
@@ -133,6 +148,7 @@ export var TEST_INGREDIENT_TYPES: IngredientType[] = [
       },
       {
         "name": "Wheat",
+        "checked": false,
         "forms": [
             {
               "name": "Sliced"
@@ -147,6 +163,7 @@ export var TEST_INGREDIENT_TYPES: IngredientType[] = [
       },
       {
         "name": "Crocodile",
+        "checked": false,
         "forms": [
             {
                 "name": "Uralian"
@@ -161,6 +178,7 @@ export var TEST_INGREDIENT_TYPES: IngredientType[] = [
       },
       {
         "name": "Pita",
+        "checked": false,
         "forms": [
             {
                 "name": "Leaven"

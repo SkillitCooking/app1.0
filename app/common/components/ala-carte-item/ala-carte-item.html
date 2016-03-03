@@ -1,0 +1,9 @@
+<ion-item class="ala-carte-item" (click)="toggleCheckItem()">
+  <ion-thumbnail item-left>
+    <img src="{{alaCarteItem.pictureURL}}">
+  </ion-thumbnail>
+  <h2>{{alaCarteItem.title}}</h2>
+  <p>Prep Time: {{alaCarteItem.prepTime}}</p>
+  <p>Total Time: {{alaCarteItem.totalTime}}</p>
+  <ion-icon name="{{getIconName()}}" item-right></ion-icon>
+</ion-item>

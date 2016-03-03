@@ -1,5 +1,24 @@
 import {IngredientType} from '../../../../common/models/ingredient-type';
 
+export var TEST_RECIPES = {
+  "alaCarte": [
+    {
+      "ingredientName": "Test",
+      "items":[
+        {
+          "title": "Test Carte",
+          "pictureURL": "http://blog.room34.com/wp-content/uploads/underdog/logo.thumbnail.png",
+          "prepTime": 10,
+          "totalTime": 30,
+          "checked": false
+        }
+      ]
+    }
+  ],
+  "fullRecipe": [],
+  "buildYourOwn": []
+}
+
 export var TEST_INGREDIENT_TYPES: IngredientType[] = [
   {
     "name": "Produce",

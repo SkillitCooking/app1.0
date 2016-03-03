@@ -54,14 +54,6 @@ export class IngredientSelection implements AfterViewInit {
     return true;
   }
 
-  selectIngredient(ingredient: Ingredient, isChecked: boolean) {
-      //need to alter "checked" property of ingredient
-      //console.log(ingredient, isChecked);
-  }
-
-  selectIngredientForm(ingredient: Ingredient, ingredientForm: IngredientForm, isChecked: boolean) {
-      //console.log(ingredient, ingredientForm, isChecked);
-  }
 
   ingredientFormsSelected(ingredients: Array<Ingredient>){
     return _.every(ingredients, (ingredient) => {
@@ -124,7 +116,6 @@ export class IngredientSelection implements AfterViewInit {
       });
       return selected;
     });
-    console.log(theSelect);
     return theSelect;
   }
 

@@ -27,7 +27,7 @@ export class CookHomePage {
       this.ingredientTypes = this.backendService.getIngredientTypes();
   }
 
-  onDone(ingredientsChosen: Array<Ingredient>) {
+  onDone(ingredientsChosen: Array<IngredientType>) {
     this.nav.push(CookSelectPage, {
       ingredients: ingredientsChosen
     });

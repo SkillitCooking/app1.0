@@ -2,21 +2,35 @@
   <ion-title>Create Your Meal</ion-title>
 </ion-navbar>
 <ion-content>
-  <ion-segment ([ngModel])="mealType">
-    <ion-segment-button value="alacarte">
-      Ala Carte
-    </ion-segment-button>
-    <ion-segment-button value="buildyourown">
-      Build Your Own
-    </ion-segment-button>
-    <ion-segment-button value="fullrecipe">
-      Full Recipes
-    </ion-segment-button>
-  </ion-segment>
-  <p *ngFor="#type of ingredients">typename: {{type.name}}
-    <span *ngFor="#ingredient of type.ingredients">
-      name: {{ingredient.name}}
-      form: {{ingredient.forms[0].name}}
-    </span>
-  </p>
+  <div padding>
+    <ion-segment [(ngModel)]="mealType">
+      <ion-segment-button value="alacarte">
+        Ala Carte
+      </ion-segment-button>
+      <ion-segment-button value="buildyourown">
+        Build Your Own
+      </ion-segment-button>
+      <ion-segment-button value="fullrecipe">
+        Full Recipes
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  
+  <div [ngSwitch]="mealType">
+    <ion-list *ngSwitchWhen="'alacarte'">
+      <div *ngFor="#ingredient of alaCarte">
+        <h2>{{ingredient.ingredientName}}</h2>
+        <ala-carte-item *ngFor="#item of ingredient.items" [alaCarteItem]="item"></ala-carte-item>
+      </div>
+    </ion-list>
+    <ion-list *ngSwitchWhen="'buildyourown'">
+      <ion-item>Dude</ion-item>
+      <ion-item>Man</ion-item>
+    </ion-list>
+    <ion-list *ngSwitchWhen="'fullrecipe'">
+      <ion-item>Full</ion-item>
+      <ion-item>Empty</ion-item>
+    </ion-list>
+  </div>
+  <button fab fab-bottom fab-center>Let's Skillit</button>
 </ion-content>

@@ -1,6 +1,6 @@
 import {Injectable} from 'angular2/core';
 import {TEST_INGREDIENT_TYPES, TEST_RECIPES} from './mock-data';
-import {Ingredient} from '../../../../common/models/ingredient';
+import {IngredientType} from '../../../../common/models/ingredient-type';
 
 @Injectable()
 export class CookBackendService {

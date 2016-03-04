@@ -1,5 +1,5 @@
 import {IONIC_DIRECTIVES} from 'ionic-framework/ionic';
-import {Component, Input} from 'angular2/core';
+import {Component, Input, Output, EventEmitter} from 'angular2/core';
 
 import {AlaCarteListItem} from '../../models/ala-carte-list-item';
 
@@ -10,6 +10,7 @@ import {AlaCarteListItem} from '../../models/ala-carte-list-item';
 })
 export class AlaCarteItem {
   _alaCarteItem: AlaCarteListItem;
+  @Output() onToggle = new EventEmitter<any>();
 
   @Input()
   set alaCarteItem(alaCarteItem: AlaCarteListItem){
@@ -20,7 +21,7 @@ export class AlaCarteItem {
   }
 
   constructor() {
-    console.log(this.alaCarteItem);
+    
   }
 
   getIconName() {
@@ -33,5 +34,6 @@ export class AlaCarteItem {
 
   toggleCheckItem() {
     this.alaCarteItem.checked = !this.alaCarteItem.checked;
+    this.onToggle.emit(this._alaCarteItem._id);
   }
 }

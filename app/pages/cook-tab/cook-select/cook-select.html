@@ -20,17 +20,19 @@
     <ion-list *ngSwitchWhen="'alacarte'">
       <div *ngFor="#ingredient of alaCarte">
         <h2>{{ingredient.ingredientName}}</h2>
-        <ala-carte-item *ngFor="#item of ingredient.items" [alaCarteItem]="item"></ala-carte-item>
+        <ala-carte-item *ngFor="#item of ingredient.items" [alaCarteItem]="item" (onToggle)="onToggleAlaCarte($event)"></ala-carte-item>
       </div>
+      <button fab fab-bottom fab-center (click)="cookAlaCarte()">
+        <ion-icon name="restaurant"></ion-icon>
+      </button>
     </ion-list>
-    <ion-list *ngSwitchWhen="'buildyourown'">
-      <ion-item>Dude</ion-item>
-      <ion-item>Man</ion-item>
-    </ion-list>
-    <ion-list *ngSwitchWhen="'fullrecipe'">
-      <ion-item>Full</ion-item>
-      <ion-item>Empty</ion-item>
-    </ion-list>
+    <div *ngSwitchWhen="'buildyourown'">
+      <h2>Build Your Own</h2>
+      <p>Some copy about Build Your Own as a category</p>
+      <byo-item *ngFor="#byoItem of byoItems" [byoItem]="byoItem" (click)="useByoItem(byoItem.id)"></byo-item>
+    </div>
+    <div *ngSwitchWhen="'fullrecipe'">
+      <full-recipe-item *ngFor="#fullRecipeItem of fullRecipeItems" [fullRecipeItem]="fullRecipeItem" (click)="useFullRecipeItem(fullRecipeItem.id)"></full-recipe-item>
+    </div>
   </div>
-  <button fab fab-bottom fab-center>Let's Skillit</button>
 </ion-content>

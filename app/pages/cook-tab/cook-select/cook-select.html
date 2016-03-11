@@ -18,8 +18,10 @@
   
   <div [ngSwitch]="mealType">
     <ion-list *ngSwitchWhen="'alacarte'">
+      <h2>Ala Carte</h2>
+      <p>Some copy about Ala Carte as a category</p>
       <div *ngFor="#ingredient of alaCarte">
-        <h2>{{ingredient.ingredientName}}</h2>
+        <h3>{{ingredient.ingredientName}}</h3>
         <ala-carte-item *ngFor="#item of ingredient.items" [alaCarteItem]="item" (onToggle)="onToggleAlaCarte($event)"></ala-carte-item>
       </div>
       <button fab fab-bottom fab-center (click)="cookAlaCarte()">
@@ -32,6 +34,8 @@
       <byo-item *ngFor="#byoItem of byoItems" [byoItem]="byoItem" (click)="useByoItem(byoItem.id)"></byo-item>
     </div>
     <div *ngSwitchWhen="'fullrecipe'">
+      <h2>Full Recipes</h2>
+      <p>Some copy about Full Recipes as a category</p>
       <full-recipe-item *ngFor="#fullRecipeItem of fullRecipeItems" [fullRecipeItem]="fullRecipeItem" (click)="useFullRecipeItem(fullRecipeItem.id)"></full-recipe-item>
     </div>
   </div>

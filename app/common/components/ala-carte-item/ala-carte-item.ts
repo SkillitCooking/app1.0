@@ -1,4 +1,4 @@
-import {IONIC_DIRECTIVES} from 'ionic-framework/ionic';
+import {IONIC_DIRECTIVES} from 'ionic-angular';
 import {Component, Input, Output, EventEmitter} from 'angular2/core';
 
 import {AlaCarteListItem} from '../../models/ala-carte-list-item';

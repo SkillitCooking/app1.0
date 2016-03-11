@@ -1,4 +1,4 @@
-import {Page} from 'ionic-framework/ionic';
+import {Page} from 'ionic-angular';
 
 import {AccountHomePage} from './account-tab/account-home/account-home';
 import {CookHomePage} from './cook-tab/cook-home/cook-home';

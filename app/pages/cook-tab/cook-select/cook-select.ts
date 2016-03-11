@@ -1,7 +1,7 @@
 import * as _ from 'underscore/underscore';
 
-import {Page, NavParams, IONIC_DIRECTIVES, NavController} from 'ionic-framework/ionic';
-import {CookBackendService} from '../common/services/cook-backend-service';
+import {Page, NavParams, IONIC_DIRECTIVES, NavController} from 'ionic-angular';
+import {RecipeService} from '../../../common/services/recipe-service';
 import {IngredientType} from '../../../common/models/ingredient-type';
 import {AlaCarteItem} from '../../../common/components/ala-carte-item/ala-carte-item';
 import {BYOItem} from '../../../common/components/byo-item/byo-item';
@@ -13,7 +13,7 @@ import {FullRecipeListItem} from '../../../common/models/full-recipe-list-item';
 
 @Page({  
   templateUrl: 'build/pages/cook-tab/cook-select/cook-select.html',
-  providers: [CookBackendService],
+  providers: [RecipeService],
   directives: [IONIC_DIRECTIVES, AlaCarteItem, BYOItem, FullRecipeItem]
 })
 export class CookSelectPage {
@@ -27,16 +27,16 @@ export class CookSelectPage {
     selectedAlaCarteIds: Array<string>;
     byoItems: Array<BYOListItem>;
     selectedBYOId: string;
-    backendService: CookBackendService;
+    recipeService: RecipeService;
 
-  constructor(params: NavParams, nav: NavController, backendService: CookBackendService) {
+  constructor(params: NavParams, nav: NavController, recipeService: RecipeService) {
     //possible loading concerns? What is the return of the API call for the various sorts of recipes?
     //All types at once?
       this.mealType = "alacarte";
       this.params = params;
       this.ingredients = this.params.get('ingredients');
-      this.backendService = backendService;
-      let allRecipes = this.backendService.getRecipeItems(this.ingredients);
+      this.recipeService = recipeService;
+      let allRecipes = this.recipeService.getRecipeListItems(this.ingredients);
       this.alaCarte = allRecipes["alaCarte"];
       this.selectedAlaCarteIds = [];
       this.byoItems = allRecipes["buildYourOwn"];

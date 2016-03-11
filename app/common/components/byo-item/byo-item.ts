@@ -1,4 +1,4 @@
-import {IONIC_DIRECTIVES} from 'ionic-framework/ionic';
+import {IONIC_DIRECTIVES} from 'ionic-angular';
 import {Component, Input} from 'angular2/core';
 import {BYOListItem} from '../../models/byo-list-item';
 

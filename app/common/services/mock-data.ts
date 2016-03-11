@@ -1,6 +1,18 @@
-import {IngredientType} from '../../../../common/models/ingredient-type';
+import {IngredientType} from '../models/ingredient-type';
 
-export var TEST_RECIPES = {
+export var TEST_RECIPES = [
+  {
+    "name": "TestRecipe1"
+  }, 
+  {
+    "name": "TestRecipe2"
+  },
+  {
+    "name": "TestRecipe3"
+  }
+];
+
+export var TEST_RECIPE_ITEMS = {
   "alaCarte": [
     {
       "ingredientName": "Test",

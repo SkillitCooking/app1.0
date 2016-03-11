@@ -1,6 +1,6 @@
 import * as _ from 'underscore/underscore';
 
-import {IONIC_DIRECTIVES, IonicApp, NavController, Alert} from 'ionic-framework/ionic';
+import {IONIC_DIRECTIVES, IonicApp, NavController, Alert} from 'ionic-angular';
 import {Input, Output, Component, EventEmitter, Injectable, AfterViewInit} from 'angular2/core';
 import {Ingredient} from '../../models/ingredient';
 import {IngredientType} from '../../models/ingredient-type';

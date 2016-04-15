@@ -1,4 +1,4 @@
-import * as _ from 'underscore/underscore';
+import * as _ from 'underscore';
 
 import {Page, NavParams, IONIC_DIRECTIVES, NavController} from 'ionic-angular';
 import {RecipeService} from '../../../common/services/recipe-service';

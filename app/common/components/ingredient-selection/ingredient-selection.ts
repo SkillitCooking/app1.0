@@ -1,4 +1,4 @@
-import * as _ from 'underscore/underscore';
+import * as _ from 'underscore';
 
 import {IONIC_DIRECTIVES, IonicApp, NavController, Alert} from 'ionic-angular';
 import {Input, Output, Component, EventEmitter, Injectable, AfterViewInit} from 'angular2/core';
@@ -18,7 +18,7 @@ export class IngredientSelection implements AfterViewInit {
     @Output() onDone = new EventEmitter<any>();
     app: IonicApp;
     nav: NavController;
-    slides: Slides;
+    slides: any;
     curIndex: number;
 
 
@@ -125,7 +125,7 @@ export class IngredientSelection implements AfterViewInit {
       return ingredientType.minSelected === 0 || ingredientType.minSelected <=
         _.countBy(ingredientType.ingredients, (ingredient) => {
           return ingredient.checked;
-      }).true;
+      })["true"];
     });
   }
 

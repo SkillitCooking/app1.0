@@ -7,12 +7,14 @@ import {IngredientType} from '../models/ingredient-type';
 @Injectable()
 export class BackendService {
 
+  //Took out Promises to just get sample functionality for Mike to do work on
+  //the visuals...
   private _apiURL = '';
 
   constructor(private http: Http){}
 
   getIngredientTypes() {
-    return Promise.resolve(TEST_INGREDIENT_TYPES);
+    return TEST_INGREDIENT_TYPES;
   }
 
   getRecipeListItems(ingredients: Array<IngredientType>) {
@@ -20,13 +22,13 @@ export class BackendService {
     //based on ingredients is a server-side task...
     //build function either here or in some mock-backend file
     //will want only limited set of needed data from the collection...
-    return Promise.resolve(TEST_RECIPE_ITEMS);
+    return TEST_RECIPE_ITEMS;
   }
 
   fetchRecipes(selectedRecipeIds: Array<string>) {
     //fetches the whole objects of recipes with the
     //given ids
-    return Promise.resolve(TEST_RECIPES);
+    return TEST_RECIPES;
   }
 
   private handleError(error: Response){

@@ -12,7 +12,7 @@ import 'rxjs/add/operator/do';
 //in memory web api imports
 //delete when not dev
 import {InMemoryBackendService, SEED_DATA} from 'a2-in-memory-web-api/core';
-import {MockData} from './common/services/mock-data';
+//import {MockData} from './common/services/mock-data';
 
 
 
